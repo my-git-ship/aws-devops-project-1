@@ -3,6 +3,7 @@ resource "aws_instance" "jenkins" {
   instance_type = var.instance-type
   key_name = var.key-name
   vpc_security_group_ids = [ var.security-group-id ]
+  user_data = file("./jenkins-user-data.sh")
 
   ebs_block_device {
     device_name = var.device-name
